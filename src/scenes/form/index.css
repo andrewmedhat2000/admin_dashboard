@@ -1,0 +1,19 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.password-input2 {
+  position: relative;
+}
+.showPassword2 {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  right: 1.5rem;
+  top: 1rem;
+  cursor: pointer;
+}
