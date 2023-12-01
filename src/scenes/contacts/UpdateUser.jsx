@@ -61,7 +61,7 @@ const UpdateUser = () => {
     name: yup.string().required("Required"),
     email: yup.string().email().required("Required"),
     password: yup.string().required("Required").min(8),
-    phone: yup.string().required("Required"),
+    phone: yup.string().required("Required").min(10).max(14),
     role: yup.string().required("Required"),
     DOB: yup.string(),
   });
@@ -241,12 +241,7 @@ const UpdateUser = () => {
                       label="Admin "
                       value="admin"
                     />
-                    <FormControlLabel
-                      value="seller"
-                      control={<Radio />}
-                      label="seller"
-                      name="role"
-                    />
+
                     <FormControlLabel
                       value="tailor"
                       control={<Radio />}
@@ -257,12 +252,6 @@ const UpdateUser = () => {
                       value="cashier"
                       control={<Radio />}
                       label="cashier"
-                      name="role"
-                    />
-                    <FormControlLabel
-                      value="supervisor"
-                      control={<Radio />}
-                      label="supervisor"
                       name="role"
                     />
                   </RadioGroup>
