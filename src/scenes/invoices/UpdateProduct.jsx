@@ -24,6 +24,7 @@ const UpdateProduct = () => {
   const [data, setData] = useState(null);
 
   const [image, setImage] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [categories, setCategory] = useState([]);
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ const UpdateProduct = () => {
   const fetchData = () => {
     axiosInstance.get(`/product/getproduct/${id}`).then((response) => {
       setData(response.data.product);
+      console.log(response.data.product.categories);
     });
   };
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -69,23 +71,38 @@ const UpdateProduct = () => {
 
   const handleFormSubmit = async (values, { resetForm }) => {
     setLoading(true);
+    console.log(values.category);
 
-    const formData = new FormData();
+    // const formData = new FormData();
 
-    image && formData.append("image", image);
-    formData.append("name", values.name);
-    values.category.forEach((item) => formData.append("categories", item));
-    formData.append("price", values.price);
-    formData.append("discount", values.discount);
-    formData.append("stock", values.stock);
-    formData.append("color", values.color);
-    formData.append("size", values.size);
-    formData.append("barCodeNumber", values.barCodeNumber);
+    // image && formData.append("image", image);
+    // formData.append("name", values.name);
+    // values.category.forEach((item) => {
+    //   console.log(item);
+    //   formData.append("categories", item);
+    // });
 
+    // formData.append("price", values.price);
+    // formData.append("discount", values.discount);
+    // formData.append("stock", values.stock);
+    // formData.append("color", values.color);
+    // formData.append("size", values.size);
+    // formData.append("barCodeNumber", values.barCodeNumber);
+    const formDataa = {
+      image: image,
+      name: values.name,
+      categories: values.category,
+      price: values.price,
+      barCodeNumber: values.barCodeNumber,
+      color: values.color,
+      stock: values.stock,
+      discount: values.discount,
+      size: values.size,
+    };
     axiosInstance
-      .patch(`/product/updateproduct/${id}`, formData, {
+      .patch(`/product/updateproduct/${id}`, formDataa, {
         headers: {
-          "Content-Type": "application/form-data",
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {

@@ -244,6 +244,14 @@ const AddProduct = () => {
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Fabric Type"
+                name="Fabric Type"
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
                 required
                 sx={{ gridColumn: "span 2" }}
                 name="image"

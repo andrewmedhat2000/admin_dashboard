@@ -169,7 +169,7 @@ const AllPoducts = () => {
       width: 100,
       editable: true,
       renderCell: (params) => (
-        <img src={params.row.image.path} alt="img" style={{ width: 50 }} />
+        <img src={params.row?.image?.path} alt="img" style={{ width: 50 }} />
       ),
     },
     {
@@ -179,7 +179,7 @@ const AllPoducts = () => {
       renderCell: (params) => (
         <div
           id="canvas"
-          onClick={() => Navigate(`/QR/${params.row._id}`)}
+          onClick={() => Navigate(`/QR/${params.row?._id}`)}
           style={{ cursor: "pointer" }}
         >
           <QRCodeCanvas

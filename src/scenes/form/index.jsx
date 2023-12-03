@@ -218,6 +218,12 @@ const Form = () => {
                     label="cashier"
                     name="role"
                   />
+                  <FormControlLabel
+                    value="supervisor"
+                    control={<Radio />}
+                    label="supervisor"
+                    name="role"
+                  />
                 </RadioGroup>
                 {errors.role && touched.role && (
                   <FormHelperText sx={{ color: "red" }} id="role">

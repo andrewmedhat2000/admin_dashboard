@@ -41,12 +41,12 @@ const UpdateUser = () => {
   const fetchData = () => {
     axiosInstance.get(`/user/getuser/${id}`).then((response) => {
       //console.log(response);
-      // console.log(response.data.users);
+      console.log(response.data.user.DOB);
 
       setData(response.data.user);
     });
   };
-  console.log(data);
+  console.log(data?.DOB.slice(0, -14));
   const isNonMobile = useMediaQuery("(min-width:600px)");
   initialValues = {
     name: data?.name,
@@ -55,8 +55,10 @@ const UpdateUser = () => {
     phone: data?.phone,
     role: data?.role,
 
-    BOD: "",
+    DOB: data?.DOB.slice(0, -14),
   };
+  console.log(initialValues);
+
   const checkoutSchema = yup.object({
     name: yup.string().required("Required"),
     email: yup.string().email().required("Required"),
@@ -68,6 +70,7 @@ const UpdateUser = () => {
 
   const handleFormSubmit = async (values, { resetForm }) => {
     setLoading(true);
+    console.log(values.DOB);
 
     try {
       const formData = new FormData();
@@ -113,7 +116,6 @@ const UpdateUser = () => {
     console.log("event", event.target.files[0]);
   };
 
-  console.log(initialValues);
   return (
     <Box m="20px" align="center">
       <Header title="UPDATE USER" subtitle="Update user Data" />
@@ -211,6 +213,11 @@ const UpdateUser = () => {
                   helperText={touched.DOB && errors.DOB}
                   sx={{ gridColumn: "span 2" }}
                 />
+                {errors.DOB && touched.DOB && (
+                  <FormHelperText sx={{ color: "red" }} id="DOB">
+                    {errors.DOB}
+                  </FormHelperText>
+                )}
                 <TextField
                   sx={{ gridColumn: "span 2" }}
                   name="image"
@@ -252,6 +259,12 @@ const UpdateUser = () => {
                       value="cashier"
                       control={<Radio />}
                       label="cashier"
+                      name="role"
+                    />
+                    <FormControlLabel
+                      value="supervisor"
+                      control={<Radio />}
+                      label="supervisor"
                       name="role"
                     />
                   </RadioGroup>

@@ -20,7 +20,7 @@ const FAQ = () => {
 
   useEffect(() => {
     axiosInstance.get(`/report/getallreports`).then((response) => {
-      setReports(response.data.reports);
+      setReports(response.data.reports.reverse());
       console.log(response.data.reports);
     });
   }, []);

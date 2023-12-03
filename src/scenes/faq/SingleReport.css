@@ -1,0 +1,8 @@
+.MuiAccordionDetails-root .text {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+.MuiAccordionDetails-root .text h4 {
+  margin-right: 2px;
+}
