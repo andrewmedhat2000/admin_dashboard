@@ -9,6 +9,7 @@ import "./SingleReport.css";
 export default function SingleReport(props) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
   return (
     <Accordion
       //defaultExpanded

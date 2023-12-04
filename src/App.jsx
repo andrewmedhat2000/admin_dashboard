@@ -28,6 +28,7 @@ import UpdateUser from "./scenes/contacts/UpdateUser";
 import UpdateCategory from "./scenes/categories/EditCategory";
 import UpdateProduct from "./scenes/invoices/UpdateProduct";
 import QR from "./scenes/qr/qr";
+import Notification from "./scenes/notifications/notifications";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -109,6 +110,18 @@ function App() {
                     <main className="content">
                       <Topbar setIsSidebar={setIsSidebar} />
                       <FAQ />
+                    </main>
+                  </Guard>
+                }
+              />
+              <Route
+                path="/notification"
+                element={
+                  <Guard>
+                    <Sidebar isSidebar={isSidebar} />
+                    <main className="content">
+                      <Topbar setIsSidebar={setIsSidebar} />
+                      <Notification />
                     </main>
                   </Guard>
                 }

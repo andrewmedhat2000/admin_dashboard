@@ -11,6 +11,7 @@ import ReportGmailerrorredOutlinedIcon from "@mui/icons-material/ReportGmailerro
 import FormatListNumberedOutlinedIcon from "@mui/icons-material/FormatListNumberedOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { axiosInstance } from "../../config/axios";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -155,6 +156,13 @@ const Sidebar = () => {
               title="Reports"
               to="/reports"
               icon={<ReportGmailerrorredOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Notifications"
+              to="/notification"
+              icon={<NotificationsNoneIcon />}
               selected={selected}
               setSelected={setSelected}
             />

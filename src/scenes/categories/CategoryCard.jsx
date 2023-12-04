@@ -38,8 +38,11 @@ export default function CategoryCard(props) {
   // };
   return (
     <Grid item xs={2} sm={4} md={4}>
-      <Card sx={{ maxWidth: 345, backgroundColor: colors.blueAccent[900] }}>
+      <Card
+        sx={{ maxWidth: 345, backgroundColor: colors.blueAccent[900], mb: 3 }}
+      >
         <CardMedia
+          style={{ height: "23rem" }}
           component="img"
           alt="green iguana"
           height="140"

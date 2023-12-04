@@ -6,3 +6,9 @@
 .MuiAccordionDetails-root .text h4 {
   margin-right: 2px;
 }
+.reports-filter{
+  display: flex;
+  gap: 6px;
+  padding: 0px 20px;
+  margin-bottom: 15px;
+}
