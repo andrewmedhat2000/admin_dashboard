@@ -5,9 +5,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import "./notifications.css";
 export default function BuyProductQR() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const fetchData = async () => {
-    setLoading(true);
     await axiosInstance
       .get("/Notification/all")
       .then((response) => {
